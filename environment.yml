@@ -47,6 +47,8 @@ dependencies:
   - curl=7.71.1=he644dc0_3
   - cycler=0.10.0=py_2
   - decorator=4.4.2=py_0
+  - fftw=3.3.8=nompi_h7f3a6c3_1111
+  - fit-sne=1.2.1=h3ddc34e_0
   - fontconfig=2.13.1=h86ecdb6_1001
   - freetype=2.10.2=he06d7ca_0
   - fribidi=1.0.10=h516909a_0
