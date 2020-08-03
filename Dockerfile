@@ -7,7 +7,7 @@ RUN apt-get update && \
     wget https://cf.10xgenomics.com/misc/bamtofastq-1.2.0 && \
     chmod 700 bamtofastq-1.2.0 && \
     mv bamtofastq-1.2.0 /usr/bin/ && \
-    conda install -c conda-forge fit-sne=1.1.0 && \
+    conda install -c conda-forge -c bioconda fit-sne=1.1.0 parallel-fastq-dump=0.6.6 && \
     mkdir -p /home/.ncbi && \
     printf '/LIBS/GUID = "%s"\n' `uuidgen` > /home/.ncbi/user-settings.mkfg
 
