@@ -9,7 +9,7 @@ RUN apt-get update && \
     mv bamtofastq-1.2.0 /usr/bin/ && \
     conda install -c conda-forge -c bioconda fit-sne=1.1.0 parallel-fastq-dump=0.6.6 && \
     mkdir -p /home/.ncbi && \
-    printf '/LIBS/GUID = "%s"\n' `uuidgen` > /home/.ncbi/user-settings.mkfg
+    printf '/LIBS/GUID = "%s"\n' `uuidgen` > /root/.ncbi/user-settings.mkfg
 
 ENV PATH /usr/bin/bamtofastq-1.2.0:$PATH
 
