@@ -7,9 +7,16 @@ RUN apt-get update && \
     wget https://cf.10xgenomics.com/misc/bamtofastq-1.2.0 && \
     chmod 700 bamtofastq-1.2.0 && \
     mv bamtofastq-1.2.0 /usr/bin/ && \
-    conda install -c conda-forge -c bioconda fit-sne=1.1.0 parallel-fastq-dump=0.6.6 && \
-    mkdir -p /home/.ncbi && \
-    printf '/LIBS/GUID = "%s"\n' `uuidgen` > /root/.ncbi/user-settings.mkfg
+    conda install -c conda-forge -c bioconda fit-sne=1.1.0 parallel-fastq-dump=0.6.6
+
+RUN mkdir -p /home/.ncbi && \
+    mkdir -p /home/ncbi && \
+    mkdir -p /home/sra && \
+    printf '/LIBS/GUID = "%s"\n' `uuidgen` > /root/.ncbi/user-settings.mkfg && \
+    printf '/libs/cloud/report_instance_identity = "true"\n' >> /root/.ncbi/user-settings.mkfg && \
+    printf '/repository/user/ad/public/root = "."\n' >> /root/.ncbi/user-settings.mkfg && \
+    printf '/repository/user/default-path = "/home/ncbi"\n' >> /root/.ncbi/user-settings.mkfg && \
+    printf '/repository/user/main/public/root = "/home/sra"\n' >> /root/.ncbi/user-settings.mkfg
 
 ENV PATH /usr/bin/bamtofastq-1.2.0:$PATH
 
